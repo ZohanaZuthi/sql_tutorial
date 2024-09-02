@@ -14,15 +14,23 @@
 
 -- to open a data table right click on the table and select Top 1000 Rows.
 -- to show the Sales table from Sales.Orders
+
 SELECT
 Sales 
 FROM Sales.Orders
 -- if you see error it might have caused because you are looking for the table in different database
+
 USE SalesDB
 -- to show the total sales under the name Total_Sales
+
 SELECT
 SUM(Sales) Total_Sales
 FROM Sales.Orders
--- ******Find the total Sales for each orders********
+-- ******Find the total Sales for each products********
+
+SELECT 
+ ProductID,SUM(Sales) TotalSales
+ From Sales.Orders
+ GROUP BY ProductID
 
 
