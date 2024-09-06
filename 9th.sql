@@ -33,3 +33,14 @@ SELECT
 	
 FROM Sales.Customers
 
+-- find all the rows where sales are greater than average values
+
+SELECT*
+FROM (
+SELECT
+	OrderID,
+	ProductID,
+	Sales,
+	AVG(Sales) OVER() AvgSales
+FROM Sales.Orders
+)t WHERE Sales >AvgSales
